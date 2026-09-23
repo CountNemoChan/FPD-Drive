@@ -5,9 +5,9 @@
   Qifeng Chen<sup>1,*,†</sup>,
   Chengwei Wu<sup>1</sup>,
   Yingjie Zhang<sup>1</sup>,
-  Sheng Yang<sup>1,✉</sup>,
+  Sheng Yang<sup>1</sup>,
   Hongbo Fu<sup>2,✉</sup>,
-  <!-- Shaoqing Ren<sup>1,3,✉</sup> -->
+  Shaoqing Ren<sup>1,3,✉</sup>
 </p>
 
 <p align="center">
