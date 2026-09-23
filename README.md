@@ -19,9 +19,7 @@
 <p align="center"><sup>*</sup> Equal contribution. &nbsp; <sup>†</sup> Project lead. &nbsp; <sup>✉</sup> Corresponding authors.</p>
 
 <p align="center">
-  <a href="#overview">Overview</a> •
-  <a href="#results">Results</a> •
-  <a href="#citation">Citation</a>
+  <a href="#overview">Overview</a> 
 </p>
 
 ## Overview
@@ -41,45 +39,6 @@ The unscaled FPD-Drive achieves **94.88 PDMS** on NAVSIM v1, **54.75 EPDMS** on 
   </a>
 </p>
 
-<p align="center"><em>FPD-Drive framework. Future observations support teacher training and target generation; only the student is used at deployment.</em><br><a href="assets/Overview.pdf">View the framework figure as a PDF</a></p>
+<p align="center"><em>FPD-Drive framework. Future observations support teacher training and target generation; only the student is used at deployment.</p>
 
 
-## Results
-
-All scores below are on a 0-100 scale; higher is better. FPD-Drive-Pro denotes the scaled model.
-
-| Model         | NAVSIM v1`navtest` PDMS | NAVSIM v2`navhard_two_stage` EPDMS | HUGSIM RC | HUGSIM HD-Score |
-| :------------ | ------------------------: | -----------------------------------: | --------: | --------------: |
-| FPD-Drive     |                     94.88 |                                54.75 |      55.3 |            45.1 |
-| FPD-Drive-Pro |           **95.51** |                      **58.07** |         - |               - |
-
-NAVSIM v2 EPDMS is the combined score returned by the two-stage evaluator. The reported FPD-Drive evaluation covers **225 scenario groups and 5,912 scenarios**. HUGSIM results are **preliminary**, covering **345 scenarios**. A dash indicates an unreported result.
-
-### NAVSIM v1 metric breakdown
-
-| Model         |    NC |   DAC |    EP |   TTC | Comfort |            PDMS |
-| :------------ | ----: | ----: | ----: | ----: | ------: | --------------: |
-| FPD-Drive     | 99.16 | 99.46 | 91.31 | 97.50 |   99.99 |           94.88 |
-| FPD-Drive-Pro | 99.29 | 99.32 | 93.09 | 97.36 |   99.98 | **95.51** |
-
-NC: no-at-fault collision; DAC: drivable-area compliance; EP: ego progress; TTC: time-to-collision compliance; PDMS: Predictive Driver Model Score; EPDMS: Extended PDMS.
-
-### HUGSIM closed-loop evaluation
-
-| Metric                | Easy | Medium | Hard | Extreme | Reported average |
-| :-------------------- | ---: | -----: | ---: | ------: | ---------------: |
-| Route completion (RC) | 86.2 |   62.8 | 38.2 |    43.3 |   **55.3** |
-| HD-Score              | 78.5 |   57.0 | 25.2 |    28.1 |   **45.1** |
-
-
-
-## Citation
-
-```bibtex
-@misc{chen_fpddrive,
-  title  = {{FPD-Drive}: Future Policy Distillation for End-to-End Autonomous Driving},
-  author = {Chen, Li-Heng and Chen, Qifeng and Wu, Chengwei and Zhang, Yingjie
-            and Yang, Sheng and Fu, Hongbo and Ren, Shaoqing},
-  note   = {Manuscript}
-}
-```
