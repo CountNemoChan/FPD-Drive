@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FPD-Drive transfers privileged future knowledge into end-to-end autonomous driving. Watch our zero-shot closed-loop evaluation on HUGSIM.">
+  <meta name="theme-color" content="#ffffff">
+  <title>FPD-Drive | Future Policy Distillation for Autonomous Driving</title>
+  <style>
+    :root { color-scheme: light; --ink: #243342; --muted: #5f6c78; --blue: #245f99; --line: #e3e8ed; }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body { margin: 0; color: var(--ink); background: #fff; font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: var(--blue); text-underline-offset: 4px; }
+    a:hover { color: #173f67; }
+    a:focus-visible, video:focus-visible { outline: 3px solid #d46b36; outline-offset: 5px; }
+    .page { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    header { padding: 68px 0 30px; text-align: center; }
+    h1 { margin: 0 auto 26px; max-width: 1050px; font-size: clamp(30px, 4.2vw, 49px); line-height: 1.17; letter-spacing: -1.5px; font-weight: 750; text-wrap: balance; }
+    .name { color: var(--blue); }
+    .authors { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 16px; margin: 0 auto 14px; font-size: 18px; }
+    .authors span { white-space: nowrap; }
+    .authors .author-break { flex-basis: 100%; height: 0; }
+    sup { position: relative; top: -.05em; font-size: .65em; line-height: 0; }
+    .affiliations { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.85; }
+    .author-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 18px; margin: 13px 0 23px; color: var(--muted); font-size: 13px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav a { padding: 7px 18px; border: 1px solid var(--line); border-radius: 7px; text-decoration: none; font-size: 14px; font-weight: 600; }
+    nav a:hover { background: #f3f7fb; border-color: #becddd; }
+    nav .primary { color: white; background: var(--ink); border-color: var(--ink); }
+    nav .primary:hover { color: white; background: var(--blue); border-color: var(--blue); }
+    nav a[aria-disabled="true"] { color: var(--muted); background: #f6f8fa; border-color: var(--line); cursor: default; }
+    section { margin: 0 0 54px; }
+    h2 { margin: 0 0 18px; font-size: 28px; line-height: 1.3; letter-spacing: -.5px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; margin-bottom: 14px; }
+    .section-heading h2 { margin: 0; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 14px; }
+    figure { margin: 0; }
+    video { display: block; width: 100%; aspect-ratio: 2116 / 1080; background: #111; border-radius: 12px; }
+    figcaption { margin-top: 12px; text-align: center; color: var(--muted); font-size: 14px; }
+    .playback-note { margin: 7px 0 0; text-align: center; color: var(--muted); font-size: 13px; }
+    .reading { max-width: 920px; margin: 0 auto; }
+    .reading p { margin: 0 0 18px; }
+    .contributions { padding-left: 24px; margin: 0; }
+    .contributions li { margin: 0 0 12px; }
+    .scores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 30px 0 12px; }
+    .score { background: #f6f8fa; border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; }
+    .score .benchmark { display: block; color: var(--muted); font-size: 13px; font-weight: 600; }
+    .score .value { display: block; margin: 3px 0 1px; color: var(--blue); font-size: 36px; line-height: 1.3; font-weight: 750; letter-spacing: -1px; }
+    .score .detail { font-size: 12px; color: var(--muted); }
+    .results-note { color: var(--muted); font-size: 13px; }
+    .framework { width: 100%; height: auto; display: block; }
+    footer { border-top: 1px solid var(--line); padding: 22px 0 30px; color: var(--muted); font-size: 13px; text-align: center; }
+    footer a { margin: 0 10px; }
+    @media (max-width: 640px) {
+      .page { width: calc(100% - 32px); }
+      header { padding: 36px 0 26px; }
+      h1 { letter-spacing: -.7px; }
+      .authors { font-size: 15px; gap: 6px 12px; }
+      .affiliations { font-size: 13px; }
+      .author-notes { font-size: 12px; gap: 2px 12px; }
+      .scores { grid-template-columns: 1fr; gap: 10px; }
+      .score { padding: 16px 20px; }
+      section { margin-bottom: 36px; }
+      h2 { font-size: 25px; }
+      body { font-size: 16px; }
+      video { border-radius: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1><span class="name">FPD-Drive:</span> Future Policy Distillation for End-to-End Autonomous Driving</h1>
+      <p class="authors">
+        <span>Li-Heng Chen<sup>1,2,*</sup></span>
+        <span>Qifeng Chen<sup>1,*,†</sup></span>
+        <span>Chengwei Wu<sup>1</sup></span>
+        <span>Yingjie Zhang<sup>1</sup></span>
+        <span>Sheng Yang<sup>1</sup></span>
+        <span class="author-break" aria-hidden="true"></span>
+        <span>Hongbo Fu<sup>2,✉</sup></span>
+        <span>Shaoqing Ren<sup>1,3,✉</sup></span>
+      </p>
+      <p class="affiliations">
+        <sup>1</sup> NIO<br>
+        <sup>2</sup> The Hong Kong University of Science and Technology<br>
+        <sup>3</sup> University of Science and Technology of China
+      </p>
+      <p class="author-notes">
+        <span><sup>*</sup> Equal contribution</span>
+        <span><sup>†</sup> Project lead</span>
+        <span><sup>✉</sup> Corresponding authors</span>
+      </p>
+      <nav aria-label="Project navigation">
+        <a role="link" aria-disabled="true">arXiv</a>
+        <a class="primary" href="https://github.com/CountNemoChan/FPD-Drive">Code</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="video-demo" aria-labelledby="demo-title">
+        <div class="section-heading">
+          <h2 id="demo-title">See FPD-Drive in action</h2>
+          <p>Zero-shot closed-loop evaluation on HUGSIM</p>
+        </div>
+        <figure>
+          <video id="demo-video" autoplay muted loop playsinline controls preload="auto" poster="assets/video_demo_poster.jpg" aria-label="FPD-Drive full video demo: zero-shot closed-loop evaluation on HUGSIM" aria-describedby="video-caption">
+            <source src="assets/video_demo_compressed.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="assets/video_demo_compressed.mp4">Watch the MP4 demo.</a>
+          </video>
+          <figcaption id="video-caption">Full demo · 1 min 23 sec · Plays muted. Use the player controls to turn on sound.</figcaption>
+        </figure>
+        <p id="playback-note" class="playback-note" hidden>Press play to start the demo.</p>
+      </section>
+
+      <section id="overview" class="reading" aria-labelledby="overview-title">
+        <h2 id="overview-title">Overview</h2>
+        <p><strong>FPD-Drive transfers privileged future knowledge into a visual driving policy to improve both trajectory generation and selection.</strong> A teacher uses recorded future observations during training to provide diverse, high-quality trajectory targets. A student learns from these targets and from evaluated safety outcomes of its own candidates. At deployment, the student plans using four current camera views, available ego-state history, and a navigation command, without future observations or teacher inference.</p>
+        <p>A logged driving scene contains only one executed trajectory and its associated future observations, leaving other valid behaviors weakly supervised. FPD-Drive addresses this limitation with two complementary objectives:</p>
+        <ul class="contributions">
+          <li><strong>Future-Privileged Multi-Target Distillation</strong> expands supervision beyond a single demonstration by transferring multiple safe, geometrically distinct teacher trajectories.</li>
+          <li><strong>Safety-Aware Score Correction</strong> improves candidate selection by correcting overconfident unsafe predictions and increasing confidence in underestimated safe alternatives.</li>
+        </ul>
+        <div class="scores" aria-label="Reported benchmark results">
+          <div class="score"><span class="benchmark">NAVSIM v1 · PDMS</span><span class="value">95.51</span><span class="detail">FPD-Drive-Pro · FPD-Drive: 94.88</span></div>
+          <div class="score"><span class="benchmark">NAVSIM v2 · EPDMS</span><span class="value">58.07</span><span class="detail">FPD-Drive-Pro · FPD-Drive: 54.75</span></div>
+          <div class="score"><span class="benchmark">HUGSIM · HD-Score</span><span class="value">45.1</span><span class="detail">FPD-Drive · Preliminary results</span></div>
+        </div>
+        <p class="results-note">All scores are on a 0–100 scale; higher is better. FPD-Drive-Pro denotes the scaled model.</p>
+      </section>
+
+      <section id="framework" aria-labelledby="framework-title">
+        <h2 id="framework-title">Framework</h2>
+        <figure>
+          <a href="assets/Overview.pdf" aria-label="Open the framework figure as a PDF"><img class="framework" src="assets/Overview.png" alt="A future-conditioned teacher transfers multiple trajectory targets to a causal student, while safety-aware score correction improves the ranking of student candidates." width="1952" height="1248" loading="lazy"></a>
+          <figcaption>Future observations support teacher training and target generation; only the student is used at deployment. </a></figcaption>
+        </figure>
+      </section>
+    </main>
+
+    <footer>
+      FPD-Drive
+      <a href="https://github.com/CountNemoChan/FPD-Drive">GitHub repository</a>
+      <a href="assets/video_demo_compressed.mp4">Full video</a>
+    </footer>
+  </div>
+  <script>
+    const video = document.getElementById('demo-video');
+    const note = document.getElementById('playback-note');
+    video.defaultMuted = true;
+    video.muted = true;
+    video.addEventListener('playing', () => { note.hidden = true; });
+    video.addEventListener('error', () => {
+      note.textContent = 'Unable to load the video. Use the full video link below to open the MP4.';
+      note.hidden = false;
+    });
+    const playback = video.play();
+    if (playback) playback.catch(() => { note.hidden = false; });
+  </script>
+</body>
+</html>

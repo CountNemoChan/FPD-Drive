@@ -18,20 +18,6 @@
 
 <p align="center"><sup>*</sup> Equal contribution. &nbsp; <sup>†</sup> Project lead. &nbsp; <sup>✉</sup> Corresponding authors.</p>
 
-<p align="center">
-  <a href="#video-demo">Video Demo</a> &bull;
-  <a href="#overview">Overview</a>
-</p>
-
-## Video Demo
-
-<p align="center">
-  <a href="assets/video_demo_compressed.mp4">
-    <img src="assets/video_demo_poster.jpg" alt="Watch the FPD-Drive video demo: zero-shot closed-loop evaluation on HUGSIM." width="100%">
-  </a>
-</p>
-
-<p align="center"><em>Zero-shot closed-loop evaluation on HUGSIM.</em><br><a href="assets/video_demo_compressed.mp4">&#9654; Watch the full demo (1 min 23 sec)</a></p>
 
 ## Overview
 
