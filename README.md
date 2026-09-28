@@ -19,8 +19,19 @@
 <p align="center"><sup>*</sup> Equal contribution. &nbsp; <sup>†</sup> Project lead. &nbsp; <sup>✉</sup> Corresponding authors.</p>
 
 <p align="center">
-  <a href="#overview">Overview</a> 
+  <a href="#video-demo">Video Demo</a> &bull;
+  <a href="#overview">Overview</a>
 </p>
+
+## Video Demo
+
+<p align="center">
+  <a href="assets/video_demo_compressed.mp4">
+    <img src="assets/video_demo_poster.jpg" alt="Watch the FPD-Drive video demo: zero-shot closed-loop evaluation on HUGSIM." width="100%">
+  </a>
+</p>
+
+<p align="center"><em>Zero-shot closed-loop evaluation on HUGSIM.</em><br><a href="assets/video_demo_compressed.mp4">&#9654; Watch the full demo (1 min 23 sec)</a></p>
 
 ## Overview
 
@@ -39,6 +50,4 @@ The unscaled FPD-Drive achieves **94.88 PDMS** on NAVSIM v1, **54.75 EPDMS** on 
   </a>
 </p>
 
-<p align="center"><em>FPD-Drive framework. Future observations support teacher training and target generation; only the student is used at deployment.</p>
-
-
+<p align="center"><em>FPD-Drive framework. Future observations support teacher training and target generation; only the student is used at deployment.</em></p>
