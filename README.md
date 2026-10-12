@@ -45,7 +45,6 @@ The unscaled FPD-Drive achieves **94.88 PDMS** on NAVSIM v1, **54.75 EPDMS** on 
 
 ## Quick start
 
-This release contains only FPD-Drive inference and evaluation code.
 Use Linux, Python 3.10+, and an NVIDIA GPU with BF16 support.
 
 **1. Create and activate a Conda environment.**
