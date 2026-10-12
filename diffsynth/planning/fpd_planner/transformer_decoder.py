@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# Adapted from DrivoR; modified for FPD-Drive inference.
+# See LICENSE and NOTICE for license terms and attribution.
+
 import torch
 from typing import Optional, Type
 from .timm_layers import (

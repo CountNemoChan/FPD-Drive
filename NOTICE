@@ -1,0 +1,27 @@
+FPD-Drive
+Copyright 2026 FPD-Drive contributors
+
+This project includes adaptations of the following open-source work:
+
+DrivoR: Driving on Registers
+https://github.com/valeoai/DrivoR
+Licensed under Apache License 2.0.
+The planner, image encoder, transformer decoder, and scoring heads have been
+modified for FPD-Drive inference.
+
+ChainFlow-VLA
+Copyright 2026 Afari Intelligent Drive.
+https://github.com/AFARI-Research/ChainFlow-VLA
+Licensed under Apache License 2.0.
+The DiT refiner has been adapted for FPD-Drive inference.
+
+PyTorch Image Models (timm)
+Copyright 2019 Ross Wightman
+https://github.com/huggingface/pytorch-image-models
+Licensed under Apache License 2.0.
+Transformer utilities are adapted from timm through DrivoR.
+
+The image encoder also retains its upstream RobustBEV attribution:
+https://github.com/mrabiabrn/robustbev
+
+External dependencies and the HUGSIM submodule retain their own licenses.

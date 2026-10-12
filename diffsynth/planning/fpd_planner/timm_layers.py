@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# Adapted from timm through DrivoR; modified for FPD-Drive inference.
+# See LICENSE and NOTICE for license terms and attribution.
+
 from functools import partial
 import torch
 from torch import nn as nn

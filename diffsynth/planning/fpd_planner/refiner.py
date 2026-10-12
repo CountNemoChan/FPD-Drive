@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# Adapted from ChainFlow-VLA; modified for FPD-Drive inference.
+# See LICENSE and NOTICE for license terms and attribution.
+
 """DDIM trajectory refinement using the released student weights."""
 from __future__ import annotations
 

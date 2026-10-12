@@ -1,6 +1,12 @@
 <h1 align="center">FPD-Drive: Future Policy Distillation for<br>End-to-End Autonomous Driving</h1>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2610.13232"><b>Paper (arXiv)</b></a> &nbsp;|&nbsp;
+  <a href="https://huggingface.co/countnemochan/FPD-Drive-ckpt"><b>Checkpoints (Hugging Face)</b></a> &nbsp;|&nbsp;
+  <a href="LICENSE"><b>Apache-2.0 License</b></a>
+</p>
+
+<p align="center">
   Li-Heng Chen<sup>1,2,*</sup>,
   Qifeng Chen<sup>1,*,†</sup>,
   Chengwei Wu<sup>1</sup>,
@@ -191,3 +197,7 @@ We thank the authors of [DrivoR](https://github.com/valeoai/DrivoR),
 [HUGSIM](https://github.com/hyzhou404/HUGSIM), and
 [NAVSIM](https://github.com/autonomousvision/navsim) for sharing their code and evaluation tools.
 
+## License
+
+The code is released under the [Apache License 2.0](LICENSE).
+See [NOTICE](NOTICE) for upstream attributions.

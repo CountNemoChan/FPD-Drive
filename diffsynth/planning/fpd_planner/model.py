@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# Adapted from DrivoR; modified for FPD-Drive inference.
+# See LICENSE and NOTICE for license terms and attribution.
+
 from typing import Dict, Optional
 import torch
 import torch.nn as nn
