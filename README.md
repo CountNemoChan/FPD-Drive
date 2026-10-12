@@ -1,9 +1,9 @@
 <h1 align="center">FPD-Drive: Future Policy Distillation for<br>End-to-End Autonomous Driving</h1>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2610.13232"><b>Paper (arXiv)</b></a> &nbsp;|&nbsp;
-  <a href="https://huggingface.co/countnemochan/FPD-Drive-ckpt"><b>Checkpoints (Hugging Face)</b></a> &nbsp;|&nbsp;
-  <a href="LICENSE"><b>Apache-2.0 License</b></a>
+  <a href="https://arxiv.org/abs/2610.13232"><img src="https://img.shields.io/badge/arXiv-2610.13232-b31b1b.svg?logo=arxiv&amp;logoColor=white" alt="arXiv paper" height="20"></a>
+  <a href="https://huggingface.co/countnemochan/FPD-Drive-ckpt"><img src="https://img.shields.io/badge/Hugging%20Face-Checkpoints-FFD21E.svg?logo=huggingface&amp;logoColor=FFD21E" alt="Hugging Face checkpoints" height="20"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?logo=apache&amp;logoColor=white" alt="Apache-2.0 license" height="20"></a>
 </p>
 
 <p align="center">
