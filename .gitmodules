@@ -1,0 +1,3 @@
+[submodule "submodules/hugsim"]
+	path = submodules/hugsim
+	url = https://github.com/CountNemoChan/hugsim-fpd-drive.git
