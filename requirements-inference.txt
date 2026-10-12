@@ -1,0 +1,14 @@
+# Install the CUDA-compatible PyTorch/torchvision pair for your system first.
+torch>=2.0
+torchvision
+numpy
+pandas
+timm>=1.0,<2
+einops
+safetensors
+Pillow
+omegaconf>=2.3,<3
+hydra-core>=1.3,<2
+msgpack
+tqdm
+# NAVSIM, compatible feature builders, and nuplan-devkit are installed separately.

@@ -1,0 +1,102 @@
+output:
+  path: ${oc.env:OUTPUT_DIR,exp}
+model:
+  type: fpdplanner
+  config:
+    cam_f0:
+    - 3
+    cam_l0:
+    - 3
+    cam_l1: []
+    cam_l2: []
+    cam_r0:
+    - 3
+    cam_r1: []
+    cam_r2: []
+    cam_b0:
+    - 3
+    lidar_pc: []
+    num_poses: 8
+    full_history_status: false
+    image_size:
+    - 1148
+    - 672
+    image_backbone:
+      model_name: timm/vit_small_patch14_reg4_dinov2.lvd142m
+      model_weights: ${oc.env:BACKBONE_WEIGHTS,checkpoints/dinov2/model.safetensors}
+      use_lora: true
+      lora_rank: 32
+      in_chans: 3
+      use_feature_pooling: false
+      focus_front_cam: false
+      compress_fc: false
+    tf_d_model: 256
+    tf_d_ffn: 1024
+    num_scene_tokens: 16
+    proposal_num: 64
+    one_token_per_traj: true
+    ref_num: 4
+    scorer_ref_num: 4
+    refiner_num_heads: 1
+    refiner_ls_values: 0.0
+joint:
+  refiner:
+    enable: true
+    type: ddim
+    architecture: refiner
+    candidate_mode: refined_only
+    num_layers: 12
+    num_heads: 8
+    hidden_dim: 1024
+    dropout: 0.0
+    num_inference_steps: 12
+    ego_status_dim: 8
+    ddim_num_train_timesteps: 1000
+    ddim_beta_schedule: scaled_linear
+    ddim_beta_start: 0.0001
+    ddim_beta_end: 0.02
+    eval_noise_seed: 27
+evaluation:
+  run_name: fpd_drive_pro_v1
+  source: scene_loader
+  checkpoint_path: ${oc.env:CHECKPOINT_PATH,checkpoints/release/pro_v1.pt}
+  navsim_root: ${oc.env:NAVSIM_V1_ROOT,external/navsim-v1}
+  env:
+    HYDRA_FULL_ERROR: 1
+    NAVSIM_DEVKIT_ROOT: ${evaluation.navsim_root}
+    OPENSCENE_DATA_ROOT: ${oc.env:OPENSCENE_DATA_ROOT,data/openscene}
+    NUPLAN_MAP_VERSION: ${oc.env:NUPLAN_MAP_VERSION,nuplan-maps-v1.0}
+    NUPLAN_MAPS_ROOT: ${oc.env:NUPLAN_MAPS_ROOT,${evaluation.env.OPENSCENE_DATA_ROOT}/maps}
+    NAVSIM_EXP_ROOT: ${oc.env:NAVSIM_EXP_ROOT,${evaluation.navsim_root}/exp}
+  metric_cache_path: ${oc.env:METRIC_CACHE_PATH,${evaluation.env.OPENSCENE_DATA_ROOT}/exp/metric_cache}
+  metric_cache_old_prefix: null
+  metric_cache_new_prefix: null
+  pdm_num_workers: 64
+  pdm_chunksize: 8
+  pdm_mp_start_method: spawn
+  pdm_worker_torch_threads: 1
+  batch_size: 8
+  num_workers: 4
+  pin_memory: true
+  limit: null
+  device: cuda
+  dtype: bf16
+  score_all_metric_cache_tokens: false
+  pdm_sampling:
+    num_poses: 40
+    interval_length: 0.1
+  scene_loader:
+    sensor_blobs_path: ${oc.env:SENSOR_BLOBS_PATH,${evaluation.env.OPENSCENE_DATA_ROOT}/sensor_blobs/test}
+    navsim_log_path: ${oc.env:NAVSIM_LOG_PATH,${evaluation.env.OPENSCENE_DATA_ROOT}/navsim_logs/test}
+    scene_filter_path: ${oc.env:SCENE_FILTER_PATH,${evaluation.navsim_root}/navsim/planning/script/config/common/train_test_split/scene_filter/navtest.msgpack}
+  score_protocol: navsim_v1_pdms
+  ranking_precision: bf16_sigmoid_numpy_fp64
+  ranking_weights:
+    noc: 0.9
+    dac: 0.9
+    ddc: 0.0
+    ep: 8.0
+    ttc: 4.0
+    comfort: 2.0
+  trajectory_ensemble_weights: null
+  selection_method: top1

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+exp/
+data/
+external/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.pkl
+*.pickle
+tests/
